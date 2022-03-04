@@ -1,6 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
+import { React, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+
 export default function App() {
+    const [valor1, setValor1] = useState();
+    const [valor2, setValor2] = useState();
+    const [resultado, setResultado] = useState(0);
+
+    function somar(){
+      setResultado(parseFloat(valor1) + parseFloat(valor2));
+    }
+  
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>Olá mundo!</Text>
@@ -10,6 +20,8 @@ export default function App() {
         <TextInput 
           style={styles.input}
           keyboardType= "numeric"
+          value={valor1}
+          onChangeText={(texto)=>setValor1(texto)}
         />
       </View>
       <View style={styles.bloco}>
@@ -17,12 +29,20 @@ export default function App() {
         <TextInput 
           style={styles.input}
           keyboardType= "numeric"
+          value={valor2}
+          onChangeText={(texto)=>setValor2(texto)}
         />
       </View>
       <View style={styles.bloco}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity 
+         style={styles.botao}
+          onPress = {somar}>
+
           <Text style={styles.textoBotao}>Somar</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.bloco}>
+        <Text style={styles.textoB}>Resultado:{resultado}</Text>
       </View>
     </View>
   );
@@ -51,7 +71,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     fontSize: 30,
     width: '80%',
-  
+
   },
   bloco: {
     width: '100%',
