@@ -10,6 +10,18 @@ export default function App() {
     function somar(){
       setResultado(parseFloat(valor1) + parseFloat(valor2));
     }
+
+    function subtracao(){
+      setResultado(parseFloat(valor1) - parseFloat(valor2));
+    }
+
+    function multiplicacao(){
+      setResultado(parseFloat(valor1) * parseFloat(valor2));
+    }
+
+    function divisao(){
+      setResultado(parseFloat(valor1) / parseFloat(valor2));
+    }
   
   return (
     <View style={styles.container}>
@@ -41,6 +53,34 @@ export default function App() {
           <Text style={styles.textoBotao}>Somar</Text>
         </TouchableOpacity>
       </View>
+
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+         style={styles.botao}
+          onPress = {subtracao}>
+
+          <Text style={styles.textoBotao}>Subtrair</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+         style={styles.botao}
+          onPress = {multiplicacao}>
+
+          <Text style={styles.textoBotao}>Multiplicar</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+         style={styles.botao}
+          onPress = {divisao}>
+
+          <Text style={styles.textoBotao}>Dividir</Text>
+        </TouchableOpacity>
+      </View>
+      
       <View style={styles.bloco}>
         <Text style={styles.textoB}>Resultado:{resultado}</Text>
       </View>
